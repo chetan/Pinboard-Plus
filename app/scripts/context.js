@@ -8,7 +8,7 @@ chrome.contextMenus.create({
     // console.log('tab', tab);
 
     var url = info.linkUrl || info.pageUrl;
-    var fallbackTitle = info.selectionText;
+    var fallbackTitle = info.selectionText || tab.title;
 
     $.ajax({
       url: url,
@@ -44,6 +44,12 @@ chrome.contextMenus.create({
 });
 
 function openPinboardPopup(url, title, desc) {
+  if (!title || title.length === 0) {
+    title = '';
+  }
+  if (!desc || desc.length === 0) {
+    desc = '';
+  }
   open('https://pinboard.in/add?url=' + encodeURIComponent(url) +
     '&description=' + encodeURIComponent(desc) +
     '&title=' + encodeURIComponent(title),
