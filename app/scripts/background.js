@@ -302,7 +302,7 @@ Notifications.init();
 // query at first time extension loaded
 chrome.tabs.query({active:true, currentWindow: true}, function (activetabs) {
   var tab = activetabs[0];
-  if (localStorage[nopingKey] === 'true') {
+  if (localStorage[nopingKey] === 'true' || !tab) {
     return;
   }
   queryPinState({url: tab.url,
