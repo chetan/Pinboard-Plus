@@ -10,6 +10,7 @@
      "default_popup": "popup.html"
   },
   "permissions": [
+    "contextMenus",
     "tabs",
     "http://*/*",
     "https://*/*"
@@ -23,7 +24,8 @@
       "scripts/pinboard.js",
       "scripts/notifications.js",
       "scripts/chromereload.js",
-      "scripts/background.js"
+      "scripts/background.js",
+      "scripts/context.js"
     ]
   },
   "content_scripts": [{
